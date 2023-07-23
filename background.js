@@ -46,7 +46,9 @@ const addHeaders = () => {
     })
 }
 
-addHeaders()
+chrome.storage.local.get('enabled', (items) => {
+    if (items.enabled) addHeaders()
+})
 
 chrome.storage.local.onChanged.addListener((changes) => {
     if (changes.access_token)
