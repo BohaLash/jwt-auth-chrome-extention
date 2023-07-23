@@ -32,7 +32,6 @@ const updateHeaders = (token) => {
 }
 
 const removeHeaders = () => {
-    console.log
     const rules = getRules()
     chrome.declarativeNetRequest.updateDynamicRules({
         removeRuleIds: rules.map((rule) => rule.id),
@@ -54,7 +53,6 @@ chrome.storage.local.onChanged.addListener((changes) => {
         updateHeaders(changes.access_token.newValue)
 
     if (changes.enabled) {
-        console.log(changes.enabled)
         if (changes.enabled.newValue) addHeaders()
         else removeHeaders()
     }

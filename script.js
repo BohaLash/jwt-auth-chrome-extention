@@ -16,15 +16,6 @@ chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
 
     refreshUrlInput.onchange = () =>
         chrome.storage.local.set({ [refreshUrlKey]: refreshUrlInput.value })
-
-    // const enabledKey = 'enabled__' + host
-
-    // chrome.storage.local.get(enabledKey, (items) => {
-    //     enabledInput.value = items[enabledKey] || ''
-    // })
-
-    // enabledInput.onchange = () =>
-    //     chrome.storage.local.set({ [enabledKey]: enabledInput.value })
 })
 
 chrome.storage.local.get(
